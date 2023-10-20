@@ -1,6 +1,6 @@
-import { precacheAndRoute } from 'workbox-precaching';
+// import { precacheAndRoute } from 'workbox-precaching';
 
-precacheAndRoute(self.__WB_MANIFEST);
+// precacheAndRoute(self.__WB_MANIFEST);
 
 const FETCH_PRIORITY_URLS = ['/', '/index.html'];
 
@@ -13,8 +13,8 @@ self.addEventListener('install', (event) => {
         cache.addAll([
           './',
           './index.html',
-          'http://localhost:7070/css/cacheStyle.css',
-          'http://localhost:7070/img/cache.jpg',
+          'https://third-project.onrender.com/css/cacheStyle.css',
+          'https://third-project.onrender.com/img/cache.jpg',
         ]);
       }),
   );
@@ -32,8 +32,8 @@ async function cacheThenFetch(e) {
   cache.addAll([
     './',
     './index.html',
-    'http://localhost:7070/css/cacheStyle.css',
-    'http://localhost:7070/img/cache.jpg',
+    'https://third-project.onrender.com/css/cacheStyle.css',
+    'https://third-project.onrender.com/img/cache.jpg',
   ]);
   return fetch(e.request);
 }
@@ -44,7 +44,7 @@ async function cacheThenFetchImg(e) {
   if (cacheResponse) {
     return cacheResponse;
   }
-  return await caches.match('http://localhost:7070/img/cache.jpg');
+  return await caches.match('https://third-project.onrender.com/img/cache.jpg');
 }
 
 async function cacheThenFetchCss(e) {
@@ -53,7 +53,7 @@ async function cacheThenFetchCss(e) {
   if (cacheResponse) {
     return cacheResponse;
   }
-  return await caches.match('http://localhost:7070/css/cacheStyle.css');
+  return await caches.match('https://third-project.onrender.com/css/cacheStyle.css');
 }
 
 async function fetchThenCache(e) {
@@ -71,8 +71,8 @@ async function fetchThenCache(e) {
   cache.addAll([
     './',
     './index.html',
-    'http://localhost:7070/css/cacheStyle.css',
-    'http://localhost:7070/img/cache.jpg',
+    'https://third-project.onrender.com/css/cacheStyle.css',
+    'https://third-project.onrender.com/img/cache.jpg',
   ]);
 
   return response;
